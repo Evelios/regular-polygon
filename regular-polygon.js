@@ -16,7 +16,7 @@ module.exports = function regularPolygon(points=3, center=[0,0], size=1, startAn
   const cy = center[1];
   let rotation;
 
-  return array(points).map((_, i) => {
+  return array(points + 1).map((_, i) => {
     rotation = offset + startAng + ((endAng - startAng) * i / points);
     let arr =  [
       cx + size * Math.cos(rotation),
