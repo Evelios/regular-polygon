@@ -9,15 +9,15 @@ const array = require('new-array');
  * @return {number[][]} A polygon in list form following
  *  [  [x,y], [x,y], ...]
  */
-module.exports = function regularPolygon(points=3, center=[0,0], size=1, offset=0) {
+module.exports = function regularPolygon(points=3, center=[0,0], size=1, startAng=0, endAng=2*Math.PI) {
   //const [cx, cy] = [center];
+  const offset = Math.PI / 2; // Start offset from pointing upward
   const cx = center[0];
   const cy = center[1];
   let rotation;
-  offset += Math.PI / 2; // Start offset from pointing upward
 
   return array(points).map((_, i) => {
-    rotation = offset + i * 2*Math.PI / points;
+    rotation = offset + startAng + (endAng * i / points);
     let arr =  [
       cx + size * Math.cos(rotation),
       cy + size * Math.sin(rotation)
