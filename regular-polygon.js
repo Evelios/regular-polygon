@@ -12,14 +12,12 @@ const array = require('new-array');
  *  [  [x,y], [x,y], ...]
  */
 module.exports = function regularPolygon(points=3, center=[0,0], size=1, startAng=0, endAng=startAng+2*Math.PI) {
-  //const [cx, cy] = [center];
-  const offset = Math.PI / 2; // Start offset from pointing upward
   const cx = center[0];
   const cy = center[1];
   let rotation;
 
   return array(points).map((_, i) => {
-    rotation = offset + startAng + ((endAng - startAng) * i / points);
+    rotation = startAng + ((endAng - startAng) * i / points);
     let arr =  [
       cx + size * Math.cos(rotation),
       cy + size * Math.sin(rotation)
