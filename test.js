@@ -10,7 +10,7 @@ test("Triangle - Centered", t => {
     [Math.cos(11 * Math.PI/6), Math.sin(11 * Math.PI/6)]
   ];
 
-  almostDeepEqual(regularPoly(3), expected);
+  almostDeepEqual(regularPoly(3, [0,0], 1, Math.PI/2), expected);
   t.end();
 });
 
@@ -24,7 +24,7 @@ test("Square - Centered", t => {
     [ size,     0]
   ];
 
-  almostDeepEqual(regularPoly(4, [0,0], size), expected);
+  almostDeepEqual(regularPoly(4, [0,0], size, Math.PI/2), expected);
   t.end();
 });
 
@@ -37,6 +37,6 @@ test("Arc", t => {
     [ size,     0]
   ];
 
-  almostDeepEqual(regularPoly(3, [0,0], size, Math.PI, 2*Math.PI), expected);
+  almostDeepEqual(regularPoly(3, [0,0], size, 3*Math.PI/2, 2*Math.PI), expected);
   t.end();
 });
